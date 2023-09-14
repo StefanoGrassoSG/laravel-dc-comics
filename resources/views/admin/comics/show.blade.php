@@ -3,17 +3,17 @@
 @section('page-title', 'Single comic')
 
 @section('content')
-    <div class="container">
+    <div class="container text-center">
         <div class="row">
             <div class="col">
-                <h1>
+                <h1 class="mb-4 mt-4">
                     {{ $comic->title }}
                 </h1>
             </div>
         </div>
 
-        <div class="row">
-            <div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="card w-50">
                 <img src="{{ $comic->thumb }}" alt="">
                 <div>
                     <h2>

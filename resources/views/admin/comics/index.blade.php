@@ -6,11 +6,14 @@
 @section('content')
     
     <div class="container">
-        <div class="row">
-            <div class="col">
+        <div class="row d-flex align-items-center justify-content-center mt-5">
+            <div class="col text-center">
                 <h1>
                     Index di Comic
                 </h1>
+            </div>
+            <div class="col text-center">
+                <a href="{{ route('comics.create') }}" class="btn btn-success">+AGGIUNGI</a>
             </div>
         </div>
 
