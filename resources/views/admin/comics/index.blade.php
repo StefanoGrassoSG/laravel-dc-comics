@@ -54,24 +54,31 @@
                                 <td>{{ $comic->type }}</td>
                                 <td>
                                     @php
-                                        $artists = json_decode($comic->artists);
-                                        $limitedArtists = Str::limit(implode(', ', $artists), 100, '...');
-                                    @endphp
-                                
-                                    {{ $limitedArtists }}
-                                </td>   
-                                <td>
-                                    @php
                                         $writers = json_decode($comic->writers);
-                                        $limitedWriters = Str::limit(implode(', ', $writers), 100, '...');
                                     @endphp
-                                
-                                    {{ $limitedWriters }}
+
+                                    @if (is_array($writers))
+                                        @foreach ($writers as $writer)
+                                            {{ $writer }}
+                                            ,
+                                        @endforeach
+                                    @else
+                                        {{ $writers }}
+                                    @endif
                                 </td>                            
                                 <td>
-                                    <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">
-                                        Vedi
-                                    </a>
+                                    @php
+                                        $artists = json_decode($comic->artists);
+                                    @endphp
+
+                                    @if (is_array($artists))
+                                        @foreach ($artists as $artist)
+                                            {{ $artist }}
+                                            ,
+                                        @endforeach
+                                    @else
+                                        {{ $artists }}
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
