@@ -80,6 +80,11 @@
                                         {{ $artists }}
                                     @endif
                                 </td>
+                                <td>
+                                    <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">
+                                        Vedi
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
