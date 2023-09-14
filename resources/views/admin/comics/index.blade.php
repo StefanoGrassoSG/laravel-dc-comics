@@ -41,7 +41,7 @@
                                 {{ Str::limit($comic->description, $limit = 100, $end = '...') }}
                             </td>
                             <td>
-                                <img src="{{ $comic->thumb }}" alt="">
+                                <img src="{{ $comic->thumb }}" alt="" width="120px">
                             </td>
                             <td>{{ $comic->price }}</td>
                             <td>{{ $comic->series }}</td>
