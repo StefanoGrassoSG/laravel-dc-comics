@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('title', 256);
             $table->text('description')->nullable();
             $table->string('thumb', 1024)->nullable();
-            $table->unsignedSmallInteger('price');
-            $table->string('series', 128);
+            $table->decimal('price', 8, 2);
             $table->date('sale_date');
             $table->string('type', 128);
             $table->string('artists', 1024);
