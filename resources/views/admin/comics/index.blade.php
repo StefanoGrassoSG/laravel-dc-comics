@@ -30,7 +30,6 @@
                             <th scope="col">Description</th>
                             <th scope="col">Thumb</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Series</th>
                             <th scope="col">Sale date</th>
                             <th scope="col">Type</th>
                             <th scope="col">Artists</th>
@@ -48,38 +47,15 @@
                                 <td>
                                     <img src="{{ $comic->thumb }}" alt="" width="120px">
                                 </td>
-                                <td>{{ $comic->price }}</td>
-                                <td>{{ $comic->series }}</td>
+                                <td>{{ $comic->price }}$</td>
                                 <td>{{ $comic->sale_date }}</td>
                                 <td>{{ $comic->type }}</td>
                                 <td>
-                                    @php
-                                        $writers = json_decode($comic->writers);
-                                    @endphp
-
-                                    @if (is_array($writers))
-                                        @foreach ($writers as $writer)
-                                            {{ $writer }}
-                                            ,
-                                        @endforeach
-                                    @else
-                                        {{ $writers }}
-                                    @endif
+                                    {{ $comic->writers }}
                                 </td>                            
                                 <td>
-                                    @php
-                                        $artists = json_decode($comic->artists);
-                                    @endphp
-
-                                    @if (is_array($artists))
-                                        @foreach ($artists as $artist)
-                                            {{ $artist }}
-                                            ,
-                                        @endforeach
-                                    @else
-                                        {{ $artists }}
-                                    @endif
-                                </td>
+                                    {{ $comic->artists }}
+                                </td>  
                                 <td>
                                     <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary mb-2 w-100">
                                         Vedi
