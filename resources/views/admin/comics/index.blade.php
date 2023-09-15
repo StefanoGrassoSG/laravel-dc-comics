@@ -81,13 +81,26 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary mb-2">
+                                    <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary mb-2 w-100">
                                         Vedi
                                     </a>
                                     
-                                    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-warning">
+                                    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-warning w-100">
                                         Edit
                                     </a>
+
+                                    <form
+                                        action="{{ route('comics.destroy', ['comic' => $comic->id]) }}"
+                                        class="d-inline-block mt-2 w-100"
+                                        method="POST"
+                                        onsubmit="return confirm('Sei sicuro di voler cancellare questo elemento?');">
+                                        @csrf
+                                        @method('DELETE')
+                                    
+                                        <button type="submit" class="btn btn-danger w-100">
+                                            Elimina
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
