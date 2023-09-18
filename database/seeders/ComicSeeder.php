@@ -25,6 +25,7 @@ class ComicSeeder extends Seeder
             $comic->thumb = $comicElement['thumb'];
             $comic->price = $comicElement['price'];
             $comic->sale_date = $comicElement['sale_date'];
+            $comic->series = $comicElement['series'];
             $comic->type = $comicElement['type'];
             $comic->artists = implode(', ', $comicElement['artists']);
             $comic->writers = implode(', ', $comicElement['writers']);        

@@ -42,6 +42,10 @@
                 <input type="date" name="sale_date" class="form-control" id="date" aria-describedby="emailHelp" required value="{{ $comic->sale_date }}">
             </div>
             <div class="mb-3">
+                <label for="series" class="form-label">Series</label>
+                <input type="text" name="series" class="form-control" id="series" aria-describedby="emailHelp" required value="{{ $comic->series }}">
+            </div>
+            <div class="mb-3">
                 <label for="type" class="form-label">Type</label>
                 <input type="text" name="type" class="form-control" id="type" aria-describedby="emailHelp" required value="{{ $comic->type }}">
             </div>

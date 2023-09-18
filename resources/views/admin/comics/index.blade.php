@@ -31,6 +31,7 @@
                             <th scope="col">Thumb</th>
                             <th scope="col">Price</th>
                             <th scope="col">Sale date</th>
+                            <th scope="col">Series</th>
                             <th scope="col">Type</th>
                             <th scope="col">Artists</th>
                             <th scope="col">Writers</th>
@@ -49,6 +50,7 @@
                                 </td>
                                 <td>{{ $comic->price }}$</td>
                                 <td>{{ $comic->sale_date }}</td>
+                                <td>{{ $comic->series }}</td>
                                 <td>{{ $comic->type }}</td>
                                 <td>
                                     {{ $comic->writers }}

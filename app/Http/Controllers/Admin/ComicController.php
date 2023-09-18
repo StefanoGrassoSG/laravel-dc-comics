@@ -32,17 +32,31 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {   
-        $formData = $request->all();
+        //$formData = $request->all();
+
+        $request->validate([
+            'title' => 'required|max:70',
+            'description' => 'required',
+            'thumb' => 'nullable|max:1024',
+            'price' => 'required|numeric|min:0.1|max:100',
+            'series' => 'nullable|max:64',
+            'sale_date' => 'nullable|date',
+            'type' => 'required|max:32'
+        ],
+        [
+            'title.max' => 'il titolo non può essere più lungo di 70 caratteri'
+        ]);
 
         $comic = new Comic();
-        $comic->title = $formData['title'];
-        $comic->description = $formData['description'];
-        $comic->thumb = $formData['thumb'];
-        $comic->price = $formData['price'];
-        $comic->sale_date = $formData['sale_date'];
-        $comic->type = $formData['type'];
-        $comic->artists = json_encode($formData['artists']);
-        $comic->writers = json_encode($formData['writers']);
+        $comic->title = $request->input('title');
+        $comic->description = $request->input['description'];
+        $comic->thumb = $request->input('thumb');
+        $comic->price = $request->input('price');
+        $comic->sale_date = $request->input('sale_date');
+        $comic->series = $request->input('series');
+        $comic->type = $request->input('type');
+        $comic->artists = $request->input('artists');
+        $comic->writers = $request->input('writers');
         $comic->save();
 
         return redirect()->route('comics.show', ['comics' => $comic->id]);
@@ -87,6 +101,7 @@ class ComicController extends Controller
         $comic->thumb = $formData['thumb'];
         $comic->price = $formData['price'];
         $comic->sale_date = $formData['sale_date'];
+        $comic->series = $formData['series'];
         $comic->type = $formData['type'];
         $comic->artists = $formData['artists'];
         $comic->writers = $formData['writers'];
