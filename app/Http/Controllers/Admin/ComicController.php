@@ -36,7 +36,7 @@ class ComicController extends Controller
 
         $request->validate([
             'title' => 'required|max:70',
-            'description' => 'required',
+            'description' => 'required|string',
             'thumb' => 'nullable|max:1024',
             'price' => 'required|numeric|min:0.1|max:100',
             'series' => 'nullable|max:64',
@@ -49,7 +49,7 @@ class ComicController extends Controller
 
         $comic = new Comic();
         $comic->title = $request->input('title');
-        $comic->description = $request->input['description'];
+        $comic->description = $request->input('description');
         $comic->thumb = $request->input('thumb');
         $comic->price = $request->input('price');
         $comic->sale_date = $request->input('sale_date');
@@ -59,7 +59,7 @@ class ComicController extends Controller
         $comic->writers = $request->input('writers');
         $comic->save();
 
-        return redirect()->route('comics.show', ['comics' => $comic->id]);
+        return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
 
     /**
