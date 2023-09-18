@@ -6,7 +6,7 @@
             </h2>
         </a>
         <a href="{{ route('comics.index') }}">
-            Lista Fumetti
+            Admin page
         </a>
     </div>
 </header>
